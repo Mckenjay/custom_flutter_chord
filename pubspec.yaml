@@ -1,7 +1,7 @@
 name: custom_flutter_chord
 description: Lyrics Chord parser and renderer for Flutter. It also comes with transpose and auto-scroll features.
-version: 0.2.2
-repository: https://github.com/claudemircasa/custom_flutter_chord
+version: 0.2.3
+repository: https://github.com/Mckenjay/custom_flutter_chord.git
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
