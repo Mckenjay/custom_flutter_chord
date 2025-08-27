@@ -142,7 +142,6 @@ class ChordProcessor {
       isChorus = false;
     }
     int counter = 0;
-    int slashes = 0;
     line.split('').forEach((character) {
       if (character == ']') {
         final sizeOfLeadingLyrics = isChorus
@@ -188,7 +187,6 @@ class ChordProcessor {
     chordLyricsLine.lyrics += lyricsSoFar;
     chordLyricsLine.sections += sectionsSoFar;
 
-    print(chordLyricsLine);
     return chordLyricsLine;
   }
 }
