@@ -1,14 +1,16 @@
 class ChordLyricsLine {
   List<Chord> chords;
   String lyrics;
+  String sections;
   List<List<int>> underlines; 
 
   ChordLyricsLine()
       : chords = [],
         lyrics = '',
+        sections = '',
         underlines =[];
 
-  ChordLyricsLine.line(this.chords, this.lyrics, this.underlines);
+  ChordLyricsLine.line(this.chords, this.lyrics, this.sections, this.underlines);
 
   /// Remove also the keyword
   bool isStartOfChorus() {
@@ -49,7 +51,7 @@ class ChordLyricsLine {
 
   @override
   String toString() {
-    return 'ChordLyricsLine($chords, lyrics: $lyrics)';
+    return 'ChordLyricsLine($chords, lyrics: $lyrics, sections: $sections)';
   }
 }
 

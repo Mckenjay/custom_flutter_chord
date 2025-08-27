@@ -45,7 +45,6 @@ class ChordProcessor {
       if (metadata.parseLine(currentLine)) {
         continue;
       }
-
       //check if we have a long line
       if (textWidth(currentLine, lyricsStyle) >= media) {
         _handleLongLine(
@@ -132,14 +131,18 @@ class ChordProcessor {
       TextStyle chordStyle, TextStyle chorusStyle) {
     ChordLyricsLine chordLyricsLine = ChordLyricsLine();
     String lyricsSoFar = '';
+    String sectionsSoFar = '';
     String chordsSoFar = '';
     bool chordHasStarted = false;
+    bool sectionHasStarted = false;
+    
     if (line.contains("{soc}") || line.contains("{start_of_chorus}")) {
       isChorus = true;
     } else if (line.contains("{eoc}") || line.contains("{end_of_chorus}")) {
       isChorus = false;
     }
     int counter = 0;
+    int slashes = 0;
     line.split('').forEach((character) {
       if (character == ']') {
         final sizeOfLeadingLyrics = isChorus
@@ -169,18 +172,23 @@ class ChordProcessor {
         }
       } else if (character == '[') {
         chordHasStarted = true;
+      } else if (character == '/') {
+        sectionHasStarted = !sectionHasStarted;
       } else {
         if (chordHasStarted) {
           chordsSoFar += character;
+        } else if (sectionHasStarted) {
+          sectionsSoFar += character;
         } else {
           lyricsSoFar += character;
           counter+=1;
         }
       }
     });
-
     chordLyricsLine.lyrics += lyricsSoFar;
+    chordLyricsLine.sections += sectionsSoFar;
 
+    print(chordLyricsLine);
     return chordLyricsLine;
   }
 }

@@ -285,7 +285,9 @@ class _LyricsRendererState extends State<LyricsRenderer> {
                       ),
                     ),
                   if (widget.showText)
-                    _formatLineWithUnderlines(line)
+                    _formatLineWithUnderlines(line),
+                  
+                  RichText(text: TextSpan(text: line.sections, style: getLineTextStyle()),),
                 ],
               );
             },
