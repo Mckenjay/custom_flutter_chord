@@ -1,3 +1,6 @@
+## 0.2.3
+* added support for sections in chord lyrics processing
+
 ## 0.2.2
 * fix bug "out of index" in "underline chars" option
 
