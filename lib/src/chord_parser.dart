@@ -167,7 +167,7 @@ class ChordProcessor {
 
         final withoutChords = line.replaceAll(RegExp(r"\[(.*?)\]"),"").trim();
         if (counter+2 < withoutChords.length) {
-          chordLyricsLine.underlines.add([counter, counter+2]);
+          // chordLyricsLine.underlines.add([counter, counter+2]);
         }
       } else if (character == '[') {
         chordHasStarted = true;
